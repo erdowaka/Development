@@ -1,18 +1,6 @@
-payload:
+  payload:
 # domain name
-
-  # Speedtest
-  - '+.starhub.com'
-  - '+.iconpln.net.id'
-  - '+.indosat.com'
-  - '+.fast.net.id'
-  - '+.facificinternet.com'
-  - '+.xl.co.id'
-  - '+.telkomsel.co.id'
-  - '+.speedtest.net'
-  - '+.cbn.id' 
-
-    # > Disney Plus
+  # > Disney Plus
   - PROCESS-NAME,com.disney.disneyplus
   - DOMAIN-SUFFIX,adobedtm.com
   - DOMAIN-SUFFIX,bam.nr-date.net
@@ -189,6 +177,18 @@ payload:
   - DOMAIN-SUFFIX,wiley.com
   - DOMAIN-SUFFIX,worldbank.org
   - DOMAIN-SUFFIX,worldscientific.com
+
+  # Speedtest
+  - '+.starhub.com'
+  - '+.iconpln.net.id'
+  - '+.indosat.com'
+  - '+.fast.net.id'
+  - '+.facificinternet.com'
+  - '+.xl.co.id'
+  - '+.telkomsel.co.id'
+  - '+.speedtest.net'
+  - '+.cbn.id' 
+ 
   
 # ip address
 
