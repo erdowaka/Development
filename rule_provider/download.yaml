@@ -2,5 +2,14 @@ payload:
 # domain name
   # MEDIAFIRE
   - DOMAIN-SUFFIX,app.mediafire.com
+
+  # > Dropbox
+  - DOMAIN-SUFFIX,dropbox.com
+  - DOMAIN-SUFFIX,dropboxapi.com
+  - DOMAIN-SUFFIX,dropboxusercontent.com
+
+  # > zippy
+
+  
 # ip address
 # destination port
