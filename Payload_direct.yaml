@@ -2,14 +2,6 @@
 
 ---
 rule-providers:
-  RP-Direct:
-    type: file
-    behavior: classical
-    path: "./rule_provider/direct.yaml"
-  RP-Game_proxy:
-    type: file
-    behavior: classical
-    path: "./rule_provider/game_proxy.yaml"
   RP-Game_direct:
     type: file
     behavior: classical
@@ -17,19 +9,23 @@ rule-providers:
   RP-Reject:
     type: file
     behavior: classical
-    path: "./rule_provider/reject.yaml"
+    path: "./rule_provider/blok.yaml"
   RP-Sosmed:
     type: file
     behavior: classical
-    path: "./rule_provider/sosmed.yaml"
+    path: "./rule_provider/sosmed_direct.yaml"
   RP-Streaming:
     type: file
     behavior: classical
-    path: "./rule_provider/streaming.yaml"
-  RP-IndoTraffik: 
+    path: "./rule_provider/streaming_direct.yaml"
+  RP-UmumDirect:
     type: file
     behavior: classical
-    path: "./rule_provider/indoTraff.yaml"
+    path: "./rule_provider/umum_direct.yaml"
+  RP-Download:
+    type: file
+    behavior: classical
+    path: "./rule_provider/download.yaml"
 
 proxy-providers:
   PP-Universal:
@@ -39,35 +35,14 @@ proxy-providers:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 9
-  PP-Gaming:
+  PP-Download:
     type: file
-    path: "./proxy_provider/AC_Gaming.yaml"
+    path: "./proxy_provider/AC_Download.yaml"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 9
-  PP-Sosmed:
-    type: file
-    path: "./proxy_provider/AC_Sosmed.yaml"
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 9
-  PP-Streaming:
-    type: file
-    path: "./proxy_provider/AC_Streaming.yaml"
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 9
-  PP-IndoTraffik: 
-    type: file
-    path: "./proxy_provider/AC_IndoTraffik.yaml"
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 9
-
+      
 proxy-groups:
 - name: PG_Universal
   type: load-balance
@@ -77,38 +52,15 @@ proxy-groups:
   - PP-Universal
   url: http://www.gstatic.com/generate_204
   interval: '9'
-- name: PG_Gaming
+
+- name: PG-Download
   type: load-balance
   strategy: round-robin
   disable-udp: false
   use:
-  - PP-Game_proxy
+  - PP-Download
   url: http://www.gstatic.com/generate_204
-  interval: '9'
-- name: PG_Sosmed
-  type: load-balance
-  strategy: round-robin
-  disable-udp: false
-  use:
-  - PP-Sosmed
-  url: http://www.gstatic.com/generate_204
-  interval: '9'
-- name: PG_Streaming
-  type: load-balance
-  strategy: round-robin
-  disable-udp: false
-  use:
-  - PP-Streaming
-  url: http://www.gstatic.com/generate_204
-  interval: '9'
-- name: IndoTraffik
-  type: load-balance
-  strategy: round-robin
-  disable-udp: false
-  use:
-  - PP-IndoTraffik
-  url: http://www.gstatic.com/generate_204
-  interval: '9'
+  inteval: '9'
 
 # This Line For Use all setting at openclash
 redir-port: 7892
@@ -335,16 +287,14 @@ rules:
 - DST-PORT,7895,REJECT
 - DST-PORT,7892,REJECT
 - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
-- RULE-SET,Reject,REJECT
+- RULE-SET,RP-Reject,REJECT
 # This Line For Direct Rule
 - RULE-SET,RP-Game_direct,DIRECT
-- RULE-SET,Direct,DIRECT
+- RULE-SET,RP-Streaming,DIRECT
+- RULE-SET,RP-Sosmed,DIRECT
+- RULE-SET,RP-Download,PG-Download
 # This Line For Use Proxy or VPN like: Trojan,V2Ray,SS,SSH
-- RULE-SET,RP-IndoTraffik,PG_IndoTraffik
-- RULE-SET,Gaming,AC_Gaming
-- RULE-SET,RP-Sosmed,AC_Sosmed
-- RULE-SET,RP-Streaming,AC_Streaming
-- GEOIP,ID,PG_IndoTraffik
+- GEOIP,ID
 - MATCH,GLOBAL
 
 # This Line For If you using meta option, or tun mode you must add this line
