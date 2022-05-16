@@ -2,71 +2,90 @@
 
 ---
 rule-providers:
-  RP-Direct:
+  RP-Game:
     type: file
     behavior: classical
-    path: "./rule_provider/direct.yaml"
-  RP-Game_proxy:
-    type: file
-    behavior: classical
-    path: "./rule_provider/game_proxy.yaml"
-  RP-Game_direct:
-    type: file
-    behavior: classical
-    path: "./rule_provider/game_direct.yaml"
+    path: "./rule_provider/game_full.yaml"
   RP-Reject:
     type: file
     behavior: classical
-    path: "./rule_provider/reject.yaml"
+    path: "./rule_provider/blok.yaml"
   RP-Sosmed:
     type: file
     behavior: classical
-    path: "./rule_provider/sosmed.yaml"
+    path: "./rule_provider/sosmed_direct.yaml"
+  RP-Sosmed_full:
+    type: file
+    behavior: classical
+    path: "./rule_provider/sosmed_full.yaml"
   RP-Streaming:
     type: file
     behavior: classical
-    path: "./rule_provider/streaming.yaml"
-  RP-IndoTraffik: 
+    path: "./rule_provider/streaming_full.yaml"
+  RP-Umum:
     type: file
     behavior: classical
-    path: "./rule_provider/indoTraff.yaml"
+    path: "./rule_provider/umum.yaml"
+  RP-Download:
+    type: file
+    behavior: classical
+    path: "./rule_provider/download.yaml"
+  RP-Khusus:
+    type: file
+    behavior: classical
+    path: "./rule_provider/khusus.yaml"
 
 proxy-providers:
   PP-Universal:
     type: file
-    path: "./proxy_provider/AC_Umum.yaml"
+    path: "./proxy_provider/PP_Umum.yaml"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 9
   PP-Gaming:
     type: file
-    path: "./proxy_provider/AC_Gaming.yaml"
+    path: "./proxy_provider/PP_game.yaml"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 9
   PP-Sosmed:
     type: file
-    path: "./proxy_provider/AC_Sosmed.yaml"
+    path: "./proxy_provider/PP_Sosmed.yaml"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 9
   PP-Streaming:
     type: file
-    path: "./proxy_provider/AC_Streaming.yaml"
+    path: "./proxy_provider/PP_Streaming.yaml"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 9
-  PP-IndoTraffik: 
+  PP-Umum:
     type: file
-    path: "./proxy_provider/AC_IndoTraffik.yaml"
+    path: "./proxy_provider/PP_Umum.yaml"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 9
+  PP-Khusus:
+    type: file
+    path: "./proxy_provider/PP_khusus.yaml"
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 9
+  PP-Download:
+    type: file
+    path: "./proxy_provider/PP_Download.yaml"
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 9
+
 
 proxy-groups:
 - name: PG_Universal
@@ -77,14 +96,16 @@ proxy-groups:
   - PP-Universal
   url: http://www.gstatic.com/generate_204
   interval: '9'
+
 - name: PG_Gaming
   type: load-balance
   strategy: round-robin
   disable-udp: false
   use:
-  - PP-Game_proxy
+  - PP-Gaming
   url: http://www.gstatic.com/generate_204
   interval: '9'
+
 - name: PG_Sosmed
   type: load-balance
   strategy: round-robin
@@ -93,6 +114,7 @@ proxy-groups:
   - PP-Sosmed
   url: http://www.gstatic.com/generate_204
   interval: '9'
+
 - name: PG_Streaming
   type: load-balance
   strategy: round-robin
@@ -101,12 +123,31 @@ proxy-groups:
   - PP-Streaming
   url: http://www.gstatic.com/generate_204
   interval: '9'
-- name: IndoTraffik
+
+- name: PG_Khusus
   type: load-balance
   strategy: round-robin
   disable-udp: false
   use:
-  - PP-IndoTraffik
+  - PP-Khusus
+  url: http://www.gstatic.com/generate_204
+  interval: '9'
+
+- name: PG_Umum
+  type: load-balance
+  strategy: round-robin
+  disable-udp: false
+  use:
+  - PP-Umum
+  url: http://www.gstatic.com/generate_204
+  interval: '9'
+
+- name: PG_Download
+  type: load-balance
+  strategy: round-robin
+  disable-udp: false
+  use:
+  - PP-Download
   url: http://www.gstatic.com/generate_204
   interval: '9'
 
@@ -335,16 +376,17 @@ rules:
 - DST-PORT,7895,REJECT
 - DST-PORT,7892,REJECT
 - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
-- RULE-SET,Reject,REJECT
+- RULE-SET,RP-Reject,REJECT
 # This Line For Direct Rule
-- RULE-SET,RP-Game_direct,DIRECT
-- RULE-SET,Direct,DIRECT
+- RULE-SET,RP-Sosmed,DIRECT
+- RULE-SET,RP-Game,PG_Gaming
 # This Line For Use Proxy or VPN like: Trojan,V2Ray,SS,SSH
-- RULE-SET,RP-IndoTraffik,PG_IndoTraffik
-- RULE-SET,Gaming,AC_Gaming
-- RULE-SET,RP-Sosmed,AC_Sosmed
-- RULE-SET,RP-Streaming,AC_Streaming
-- GEOIP,ID,PG_IndoTraffik
+- RULE-SET,RP-Sosmed_full,PG_Sosmed
+- RULE-SET,RP-Streaming,PG_Streaming
+- RULE-SET,RP-Umum,PG_Umum
+- RULE-SET,RP-Download,PG_Download
+- RULE-SET,RP-Khusus,PG_Khusus
+- GEOIP,ID,PG_Downnload
 - MATCH,GLOBAL
 
 # This Line For If you using meta option, or tun mode you must add this line
