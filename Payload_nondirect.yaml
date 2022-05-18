@@ -5,35 +5,35 @@ rule-providers:
   RP-Game:
     type: file
     behavior: classical
-    path: "./rule_provider/game_full.yaml"
+    path: "./rule_provider/Game_full.yaml"
   RP-Reject:
     type: file
     behavior: classical
-    path: "./rule_provider/blok.yaml"
+    path: "./rule_provider/Blok.yaml"
   RP-Sosmed:
     type: file
     behavior: classical
-    path: "./rule_provider/sosmed_direct.yaml"
+    path: "./rule_provider/Sosmed_direct.yaml"
   RP-Sosmed_full:
     type: file
     behavior: classical
-    path: "./rule_provider/sosmed_full.yaml"
+    path: "./rule_provider/Sosmed_full.yaml"
   RP-Streaming:
     type: file
     behavior: classical
-    path: "./rule_provider/streaming_full.yaml"
+    path: "./rule_provider/Streaming_full.yaml"
   RP-Umum:
     type: file
     behavior: classical
-    path: "./rule_provider/umum.yaml"
+    path: "./rule_provider/Umum.yaml"
   RP-Download:
     type: file
     behavior: classical
-    path: "./rule_provider/download.yaml"
+    path: "./rule_provider/Download.yaml"
   RP-Khusus:
     type: file
     behavior: classical
-    path: "./rule_provider/khusus.yaml"
+    path: "./rule_provider/Khusus.yaml"
 
 proxy-providers:
   PP-Universal:
@@ -45,7 +45,7 @@ proxy-providers:
       interval: 9
   PP-Gaming:
     type: file
-    path: "./proxy_provider/PP_game.yaml"
+    path: "./proxy_provider/PP_Game.yaml"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -73,7 +73,7 @@ proxy-providers:
       interval: 9
   PP-Khusus:
     type: file
-    path: "./proxy_provider/PP_khusus.yaml"
+    path: "./proxy_provider/PP_Khusus.yaml"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204

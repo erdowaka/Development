@@ -51,7 +51,7 @@
   - DOMAIN-SUFFIX,nflxso.net
   - DOMAIN-SUFFIX,nflxvideo.net
 
-   # > Twitch
+  # > Twitch
   - PROCESS-NAME,tv.twitch.android.app
   - DOMAIN-SUFFIX,ext-twitch.tv
   - DOMAIN-SUFFIX,jtvnw.net
@@ -546,6 +546,106 @@
   - DOMAIN-SUFFIX,ytimg.com
   - DOMAIN,youtubei.googleapis.com
   - DOMAIN,yt3.ggpht.com
+  - DOMAIN-SUFFIX,creatoracademy.youtube.com
+  - DOMAIN-SUFFIX,tv.youtube.com
+  - DOMAIN-SUFFIX,img.youtube.com
+  - DOMAIN-SUFFIX,payments.youtube.com
+  - DOMAIN-SUFFIX,kids.youtube.com
+  - DOMAIN-SUFFIX,signaler-pa.youtube.com
+  - DOMAIN-SUFFIX,s.youtube.com
+  - DOMAIN-SUFFIX,m.youtube.com
+  - DOMAIN-SUFFIX,tw.youtube.com
+  - DOMAIN-SUFFIX,families.youtube.com
+  - DOMAIN-SUFFIX,fr.youtube.com
+  - DOMAIN-SUFFIX,accounts.youtube.com
+  - DOMAIN-SUFFIX,web-green-qa.youtube.com
+  - DOMAIN-SUFFIX,tv-green-qa.youtube.com
+  - DOMAIN-SUFFIX,www.youtube.com
+  - DOMAIN-SUFFIX,studio.youtube.com
+  - DOMAIN-SUFFIX,jp.youtube.com
+  - DOMAIN-SUFFIX,realtimesupport.youtube.com
+  - DOMAIN-SUFFIX,corp.youtube.com
+  - DOMAIN-SUFFIX,fcmatch.youtube.com
+  - DOMAIN-SUFFIX,gaming.youtube.com
+  - DOMAIN-SUFFIX,casespartner-pa.youtube.com
+  - DOMAIN-SUFFIX,consent.youtube.com
+  - DOMAIN-SUFFIX,upload.youtube.com
+  - DOMAIN-SUFFIX,gdata.youtube.com
+  - DOMAIN-SUFFIX,artists.youtube.com
+  - DOMAIN-SUFFIX,tv-release-qa.youtube.com
+  - DOMAIN-SUFFIX,ads.youtube.com
+  - DOMAIN-SUFFIX,restrict.youtube.com
+  - DOMAIN-SUFFIX,suggestqueries-clients6.youtube.com
+  - DOMAIN-SUFFIX,rtmps.youtube.com
+  - DOMAIN-SUFFIX,restrictmoderate.youtube.com
+  - DOMAIN-SUFFIX,charts.youtube.com
+  - DOMAIN-SUFFIX,au.youtube.com
+  - DOMAIN-SUFFIX,uk.youtube.com
+  - DOMAIN-SUFFIX,admin.youtube.com
+  - DOMAIN-SUFFIX,music-green-qa.youtube.com
+  - DOMAIN-SUFFIX,de.youtube.com
+  - DOMAIN-SUFFIX,es.youtube.com
+  - DOMAIN-SUFFIX,music-release-qa.youtube.com
+  - DOMAIN-SUFFIX,br.youtube.com
+  - DOMAIN-SUFFIX,checkout-green-qa.youtube.com
+  - DOMAIN-SUFFIX,accountlinking-pa-clients6.youtube.com
+  - DOMAIN-SUFFIX,web-release-qa.youtube.com
+  - DOMAIN-SUFFIX,hk.youtube.com
+  - DOMAIN-SUFFIX,in.youtube.com
+  - DOMAIN-SUFFIX,vr.youtube.com
+  - DOMAIN-SUFFIX,it.youtube.com
+  - DOMAIN-SUFFIX,mx.youtube.com
+  - DOMAIN-SUFFIX,alt802114.youtube.com
+  - DOMAIN-SUFFIX,nl.youtube.com
+  - DOMAIN-SUFFIX,help.youtube.com
+  - DOMAIN-SUFFIX,ru.youtube.com
+  - DOMAIN-SUFFIX,il.youtube.com
+  - DOMAIN-SUFFIX,analytics.youtube.com
+  - DOMAIN-SUFFIX,alt514655037.youtube.com
+  - DOMAIN-SUFFIX,news.youtube.com
+  - DOMAIN-SUFFIX,kr.youtube.com
+  - DOMAIN-SUFFIX,s-qa.youtube.com
+  - DOMAIN-SUFFIX,client-channel.youtube.com
+  - DOMAIN-SUFFIX,embeddedassistant-clients6.youtube.com
+  - DOMAIN-SUFFIX,za.youtube.com
+  - DOMAIN-SUFFIX,ca.youtube.com
+  - DOMAIN-SUFFIX,pl.youtube.com
+  - DOMAIN-SUFFIX,contributors.youtube.com
+  - DOMAIN-SUFFIX,movies.youtube.com
+  - DOMAIN-SUFFIX,oauthintegrations-clients6.youtube.com
+  - DOMAIN-SUFFIX,alt4820.youtube.com
+  - DOMAIN-SUFFIX,embeddedassistant-frontend-clients6.youtube.com
+  - DOMAIN-SUFFIX,socialimpact.youtube.com
+  - DOMAIN-SUFFIX,cms.youtube.com
+  - DOMAIN-SUFFIX,lifeinaday.youtube.com
+  - DOMAIN-SUFFIX,devicereport.youtube.com
+  - DOMAIN-SUFFIX,ie.youtube.com
+  - DOMAIN-SUFFIX,director.youtube.com
+  - DOMAIN-SUFFIX,alt43605079.youtube.com
+  - DOMAIN-SUFFIX,admin-release-qa.youtube.com
+  - DOMAIN-SUFFIX,id.youtube.com
+  - DOMAIN-SUFFIX,youtubei.youtube.com
+  - DOMAIN-SUFFIX,apiblog.youtube.com
+  - DOMAIN-SUFFIX,admin-green-qa.youtube.com
+  - DOMAIN-SUFFIX,p.youtube.com
+  - DOMAIN-SUFFIX,alt9834806.youtube.com
+  - DOMAIN-SUFFIX,alt9027804.youtube.com
+  - DOMAIN-SUFFIX,alt826784.youtube.com
+  - DOMAIN-SUFFIX,alt7986.youtube.com
+  - DOMAIN-SUFFIX,alt702645757.youtube.com
+  - DOMAIN-SUFFIX,alt61096.youtube.com
+  - DOMAIN-SUFFIX,alt577.youtube.com
+  - DOMAIN-SUFFIX,alt50399438.youtube.com
+  - DOMAIN-SUFFIX,alt4259.youtube.com
+  - DOMAIN-SUFFIX,alt328299.youtube.com
+  - DOMAIN-SUFFIX,alt245.youtube.com
+  - DOMAIN-SUFFIX,alt182.youtube.com
+  - DOMAIN-SUFFIX,alt1337812.youtube.com
+  - DOMAIN-SUFFIX,alt0990631843.youtube.com
+  - DOMAIN-SUFFIX,alt03608949.youtube.com
+  - DOMAIN-SUFFIX,alt003189.youtube.com
+  - DOMAIN-SUFFIX,admin-py3.youtube.com
+  - DOMAIN-SUFFIX,music.youtube.com
   
     # > ZOOM
   - DOMAIN-SUFFIX,zoom.us
