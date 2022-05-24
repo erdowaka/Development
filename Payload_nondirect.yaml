@@ -34,6 +34,10 @@ rule-providers:
     type: file
     behavior: classical
     path: "./rule_provider/Khusus.yaml"
+  RP-Adsyt:
+    type:file
+    behavior: classical
+    path: "./rule_provider/adsyoutube.yaml"
 
 proxy-providers:
   PP-Universal:
@@ -206,6 +210,7 @@ rules:
 - DST-PORT,7892,REJECT
 - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
 - RULE-SET,RP-Reject,REJECT
+- RULE-SET,RP-Adsyt,REJECT
 # This Line For Direct Rule
 - RULE-SET,RP-Sosmed,DIRECT
 - RULE-SET,RP-Game,PG_Gaming
@@ -215,7 +220,6 @@ rules:
 - RULE-SET,RP-Umum,PG_Umum
 - RULE-SET,RP-Download,PG_Download
 - RULE-SET,RP-Khusus,PG_Khusus
-- GEOIP,ID,PG_Downnload
 - MATCH,GLOBAL
 
 # This Line For If you using meta option, or tun mode you must add this line

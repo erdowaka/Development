@@ -2,6 +2,10 @@ payload:
 
   - DOMAIN-SUFFIX,apk.miuiku.com
   - DOMAIN-SUFFIX,mirrored.to
+  - DOMAIN-SUFFIX,karanime.com
+  - DOMAIN-SUFFIX,nanimex.org
+  - DOMAIN-SUFFIX,new.nanime.biz
+  - DOMAIN-SUFFIX,otakudesu.tube
 
   - DOMAIN-SUFFIX,www.semawur.com
   - DOMAIN-SUFFIX,my.semawur.com
