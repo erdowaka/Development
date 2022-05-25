@@ -89,6 +89,7 @@ payload:
   - DOMAIN-SUFFIX,webcast.tiktok.com
   - DOMAIN-SUFFIX,v16-webapp.tiktok.com
   - DOMAIN-SUFFIX,mon-va.byteoversea.com
+  - DOMAIN-SUFFIX,m15.tiktokcdn.com
 
   # > Twitter
   - DOMAIN-SUFFIX,twimg.com

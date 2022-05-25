@@ -1478,5 +1478,5 @@ payload:
   - IP-CIDR,113.29.117.0/24,no-resolve
 
 # operator names
-- DOMAIN-SUFFIX,v15m.tiktokcdn.com
+  - DOMAIN-SUFFIX,v15m.tiktokcdn.com
   - Domain-SUFFIX,api.myxl.xlaxiata.co.id
