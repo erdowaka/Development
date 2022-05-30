@@ -289,16 +289,14 @@ tun:
   auto-route: false
   auto-detect-interface: false
   dns-hijack:
-  - tcp://any:53
+  - 'any:53'
 profile:
   store-selected: true
   store-fake-ip: true
 rules:
-- DST-PORT,7895,REJECT
-- DST-PORT,7892,REJECT
-- DST-PORT,7895,REJECT
-- DST-PORT,7892,REJECT
+- DST-PORT,7892/7895,REJECT
 - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+- DOMAIN-SUFFIX, goole.com, auto
 - RULE-SET,RP-Reject,REJECT
 - RULE-SET,RP-AdsYt,REJECT
 - RULE-SET,RP-Sosmed,DIRECT

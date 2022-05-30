@@ -289,7 +289,7 @@ tun:
   auto-route: false
   auto-detect-interface: false
   dns-hijack:
-  - tcp://any:53
+  - 'any:53'
 profile:
   store-selected: true
   store-fake-ip: true
