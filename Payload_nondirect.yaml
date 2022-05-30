@@ -1,5 +1,3 @@
-# This Config for build and sharing for anyone 
-
 ---
 rule-providers:
   RP-Game:
@@ -10,6 +8,7 @@ rule-providers:
     type: file
     behavior: classical
     path: "./rule_provider/Blok.yaml"
+    interval: 86400
   RP-Sosmed:
     type: file
     behavior: classical
@@ -25,7 +24,7 @@ rule-providers:
   RP-Umum:
     type: file
     behavior: classical
-    path: "./rule_provider/Umum.yaml"
+    path: "./rule_provider/Umum_full.yaml"
   RP-Download:
     type: file
     behavior: classical
@@ -34,15 +33,18 @@ rule-providers:
     type: file
     behavior: classical
     path: "./rule_provider/Khusus.yaml"
-  RP-Adsyt:
-    type:file
+  RP-AdsYt:
+    type: file
     behavior: classical
     path: "./rule_provider/adsyoutube.yaml"
-
+  RP-YT:
+    type: file
+    behavior: classical
+    path: "./rule_provider/youtube.yaml"
 proxy-providers:
   PP-Universal:
     type: file
-    path: "./proxy_provider/PP_Umum.yaml"
+    path: "./proxy_provider/PP_Universal.yaml"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -89,8 +91,6 @@ proxy-providers:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 9
-
-
 proxy-groups:
 - name: PG_Universal
   type: load-balance
@@ -100,7 +100,6 @@ proxy-groups:
   - PP-Universal
   url: http://www.gstatic.com/generate_204
   interval: '9'
-
 - name: PG_Gaming
   type: load-balance
   strategy: round-robin
@@ -109,7 +108,6 @@ proxy-groups:
   - PP-Gaming
   url: http://www.gstatic.com/generate_204
   interval: '9'
-
 - name: PG_Sosmed
   type: load-balance
   strategy: round-robin
@@ -118,7 +116,6 @@ proxy-groups:
   - PP-Sosmed
   url: http://www.gstatic.com/generate_204
   interval: '9'
-
 - name: PG_Streaming
   type: load-balance
   strategy: round-robin
@@ -127,7 +124,6 @@ proxy-groups:
   - PP-Streaming
   url: http://www.gstatic.com/generate_204
   interval: '9'
-
 - name: PG_Khusus
   type: load-balance
   strategy: round-robin
@@ -136,7 +132,6 @@ proxy-groups:
   - PP-Khusus
   url: http://www.gstatic.com/generate_204
   interval: '9'
-
 - name: PG_Umum
   type: load-balance
   strategy: round-robin
@@ -145,7 +140,6 @@ proxy-groups:
   - PP-Umum
   url: http://www.gstatic.com/generate_204
   interval: '9'
-
 - name: PG_Download
   type: load-balance
   strategy: round-robin
@@ -154,12 +148,10 @@ proxy-groups:
   - PP-Download
   url: http://www.gstatic.com/generate_204
   interval: '9'
-
-# This Line For Use all setting at openclash
 dns:
   nameserver:
-  - dhcp://"eth0"
-  - 192.168.0.1
+  - dhcp://"eth0.20"
+  - 192.168.8.1
   - 8.8.8.8
   - 8.8.4.4
   - https://dns.adguard.com/dns-query
@@ -173,6 +165,104 @@ dns:
   listen: 0.0.0.0:7874
   fake-ip-filter:
   - "+.*"
+  - "*.lan"
+  - "*.localdomain"
+  - "*.example"
+  - "*.invalid"
+  - "*.localhost"
+  - "*.test"
+  - "*.local"
+  - "*.home.arpa"
+  - time.*.com
+  - time.*.gov
+  - time.*.edu.cn
+  - time.*.apple.com
+  - time1.*.com
+  - time2.*.com
+  - time3.*.com
+  - time4.*.com
+  - time5.*.com
+  - time6.*.com
+  - time7.*.com
+  - ntp.*.com
+  - ntp1.*.com
+  - ntp2.*.com
+  - ntp3.*.com
+  - ntp4.*.com
+  - ntp5.*.com
+  - ntp6.*.com
+  - ntp7.*.com
+  - "*.time.edu.cn"
+  - "*.ntp.org.cn"
+  - "+.pool.ntp.org"
+  - time1.cloud.tencent.com
+  - music.163.com
+  - "*.music.163.com"
+  - "*.126.net"
+  - musicapi.taihe.com
+  - music.taihe.com
+  - songsearch.kugou.com
+  - trackercdn.kugou.com
+  - "*.kuwo.cn"
+  - api-jooxtt.sanook.com
+  - api.joox.com
+  - joox.com
+  - y.qq.com
+  - "*.y.qq.com"
+  - streamoc.music.tc.qq.com
+  - mobileoc.music.tc.qq.com
+  - isure.stream.qqmusic.qq.com
+  - dl.stream.qqmusic.qq.com
+  - aqqmusic.tc.qq.com
+  - amobile.music.tc.qq.com
+  - "*.xiami.com"
+  - "*.music.migu.cn"
+  - music.migu.cn
+  - "+.msftconnecttest.com"
+  - "+.msftncsi.com"
+  - msftconnecttest.com
+  - msftncsi.com
+  - localhost.ptlogin2.qq.com
+  - localhost.sec.qq.com
+  - "+.srv.nintendo.net"
+  - "*.n.n.srv.nintendo.net"
+  - "+.stun.playstation.net"
+  - xbox.*.*.microsoft.com
+  - "*.*.xboxlive.com"
+  - xbox.*.microsoft.com
+  - xnotify.xboxlive.com
+  - "+.battlenet.com.cn"
+  - "+.wotgame.cn"
+  - "+.wggames.cn"
+  - "+.wowsgame.cn"
+  - "+.wargaming.net"
+  - proxy.golang.org
+  - stun.*.*
+  - stun.*.*.*
+  - "+.stun.*.*"
+  - "+.stun.*.*.*"
+  - "+.stun.*.*.*.*"
+  - "+.stun.*.*.*.*.*"
+  - heartbeat.belkin.com
+  - "*.linksys.com"
+  - "*.linksyssmartwifi.com"
+  - "*.router.asus.com"
+  - mesu.apple.com
+  - swscan.apple.com
+  - swquery.apple.com
+  - swdownload.apple.com
+  - swcdn.apple.com
+  - swdist.apple.com
+  - lens.l.google.com
+  - stun.l.google.com
+  - "+.nflxvideo.net"
+  - "*.square-enix.com"
+  - "*.finalfantasyxiv.com"
+  - "*.ffxiv.com"
+  - "*.ff14.sdo.com"
+  - ff.dorado.sdo.com
+  - "*.mcdn.bilivideo.cn"
+  - "+.media.dssott.com"
   default-nameserver:
   - 192.168.9.1
   - 192.168.8.1
@@ -190,11 +280,11 @@ allow-lan: true
 external-controller: 0.0.0.0:9090
 secret: reyre
 bind-address: "*"
-external-ui: "/usr/share/openclash/dashboard"
+external-ui: "/usr/share/openclash/ui"
 ipv6: false
 tun:
   enable: true
-  stack: system
+  stack: gvisor
   device: utun
   auto-route: false
   auto-detect-interface: false
@@ -203,29 +293,21 @@ tun:
 profile:
   store-selected: true
   store-fake-ip: true
-
 rules:
-# This Line For Reject
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
 - DST-PORT,7895,REJECT
 - DST-PORT,7892,REJECT
 - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
 - RULE-SET,RP-Reject,REJECT
-- RULE-SET,RP-Adsyt,REJECT
-# This Line For Direct Rule
+- RULE-SET,RP-AdsYt,REJECT
 - RULE-SET,RP-Sosmed,DIRECT
 - RULE-SET,RP-Game,PG_Gaming
-# This Line For Use Proxy or VPN like: Trojan,V2Ray,SS,SSH
-- RULE-SET,RP-Sosmed_full,PG_Sosmed
+- RULE-SET,RP-YT,DIRECT
+- RULE-SET,RP-Sosmed_full,DIRECT
 - RULE-SET,RP-Streaming,PG_Streaming
 - RULE-SET,RP-Umum,PG_Umum
 - RULE-SET,RP-Download,PG_Download
 - RULE-SET,RP-Khusus,PG_Khusus
 - MATCH,GLOBAL
-
-# This Line For If you using meta option, or tun mode you must add this line
-geodata-mode: false
-geodata-loader: memconservative
-sniffer:
-  enable: true
-  sniffing:
-  - tls
+interface-name: eth0.20
