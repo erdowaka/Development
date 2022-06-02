@@ -1,0 +1,209 @@
+---
+proxy-groups:
+- name: Gaming
+  type: select
+  disable-udp: false
+  proxies:
+  - DIRECT
+  - TrojanID
+ 
+  url: http://www.gstatic.com/generate_204
+  interval: '9'
+- name: Khusus
+  type: url-test
+  proxies:
+  - TrojanID
+ 
+  url: http://www.gstatic.com/generate_204
+  interval: '9'
+- name: Download
+  type: url-test
+  disable-udp: false
+  proxies:
+  - TrojanID
+
+  url: http://www.gstatic.com/generate_204
+  interval: '9'
+- name: Umum
+  type: url-test
+  disable-udp: false
+  proxies:
+  - TrojanID
+
+  url: http://www.gstatic.com/generate_204
+  interval: '9'
+  tolerance: '150'
+- name: Sosmed
+  type: url-test
+  disable-udp: false
+  proxies:
+  - TrojanID
+ 
+  url: http://www.gstatic.com/generate_204
+  interval: '9'
+  tolerance: '150'
+- name: Sosmed_Direct
+  type: url-test
+  disable-udp: false
+  proxies:
+  - DIRECT
+  - TrojanID
+ 
+  url: http://www.gstatic.com/generate_204
+  interval: '9'
+  tolerance: '150'
+- name: Streaming
+  type: url-test
+  disable-udp: false
+  proxies:
+  - TrojanID
+ 
+  url: http://www.gstatic.com/generate_204
+  interval: '9'
+  tolerance: '150'
+- name: Youtube
+  type: select
+  disable-udp: false
+  proxies:
+  - TrojanID
+ 
+  url: http://www.gstatic.com/generate_204
+  interval: '9'
+- name: Reject
+  type: select
+  disable-udp: false
+  proxies:
+  - REJECT
+  - TrojanID
+ 
+- name: Load Balance
+  type: load-balance
+  strategy: round-robin
+  disable-udp: false
+  proxies:
+  - TrojanID
+ 
+  url: http://www.gstatic.com/generate_204
+  interval: '9'
+redir-port: 7892
+port: 7890
+socks-port: 7891
+mixed-port: 7893
+mode: rule
+log-level: silent
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: reyre
+bind-address: "*"
+external-ui: "/usr/share/openclash/dashboard"
+dns:
+  nameserver:
+  - dhcp://"eth0"
+  - 192.168.0.1
+  - 8.8.8.8
+  - 8.8.4.4
+  - https://dns.adguard.com/dns-query
+  - https://dns.google/dns-query
+  - tls://dns.adguard.com
+  - tls://dns.google
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  listen: 0.0.0.0:7874
+  fake-ip-filter:
+  - "+.*"
+  default-nameserver:
+  - 192.168.9.1
+  - 192.168.8.1
+  - 192.168.0.1
+  - 8.8.8.8
+  - 8.8.4.4
+tun:
+  enable: true
+  stack: system
+  device: utun
+  auto-route: false
+  auto-detect-interface: false
+  dns-hijack:
+  - 'any:53'
+profile:
+  store-selected: true
+  store-fake-ip: true
+rules:
+- DST-PORT,7892/7895,REJECT
+- RULE-SET,RP-Reject,Reject
+- RULE-SET,RP-Umum,Umum
+- RULE-SET,RP-Sosmed,Sosmed_Direct
+- RULE-SET,RP-Sosmed_full,Sosmed
+- RULE-SET,RP-Streaming,Streaming
+- RULE-SET,RP-YT,Youtube
+- RULE-SET,RP-Game,Gaming
+- RULE-SET,RP-Download,Download
+- RULE-SET,RP-Khusus,Khusus
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+- MATCH,GLOBAL
+geodata-mode: false
+geodata-loader: memconservative
+sniffer:
+  enable: true
+  sniffing:
+  - tls
+  - http
+rule-providers:
+  RP-Game:
+    type: file
+    behavior: classical
+    path: "./rule_provider/Game_full.yaml"
+  RP-Reject:
+    type: file
+    behavior: classical
+    path: "./rule_provider/Blok.yaml"
+    interval: 86400
+  RP-Sosmed:
+    type: file
+    behavior: classical
+    path: "./rule_provider/Sosmed_direct.yaml"
+  RP-Sosmed_full:
+    type: file
+    behavior: classical
+    path: "./rule_provider/Sosmed_full.yaml"
+  RP-Streaming:
+    type: file
+    behavior: classical
+    path: "./rule_provider/Streaming_full.yaml"
+  RP-Umum:
+    type: file
+    behavior: classical
+    path: "./rule_provider/Umum_full.yaml"
+  RP-Download:
+    type: file
+    behavior: classical
+    path: "./rule_provider/Download.yaml"
+  RP-Khusus:
+    type: file
+    behavior: classical
+    path: "./rule_provider/Khusus.yaml"
+  RP-AdsYt:
+    type: file
+    behavior: classical
+    path: "./rule_provider/adsyoutube.yaml"
+  RP-YT:
+    type: file
+    behavior: classical
+    path: "./rule_provider/youtube.yaml"
+proxies:
+- name: TrojanID
+  server: v27.tiktokcdn.com
+  port: 443
+  type: trojan
+  password: jagoanssh-trojanidjagoan
+  sni: id2go.ipservers.xyz
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /trojan
+    headers:
+      Host: id2go.ipservers.xyz
+  udp: true
+
