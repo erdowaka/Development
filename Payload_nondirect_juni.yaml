@@ -93,7 +93,7 @@ proxy-providers:
       interval: 9
 proxy-groups:
 - name: NEWFINAL
-  type: relay
+  type: load-balance
   disable-udp: false
   proxies:
   - PG_Universal

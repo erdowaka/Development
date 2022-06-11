@@ -654,7 +654,7 @@ payload:
   - DOMAIN-SUFFIX,proxy.ws.ff.garena.com
   - DOMAIN-SUFFIX,xmaspreorder.ff.garena.com
  
-    #Higgs domino
+  #Higgs domino
   - DOMAIN-SUFFIX,claim-chip.higgs-domino.com
   - DOMAIN-SUFFIX,tops.higgs-domino.com
   - DOMAIN-SUFFIX,topup.higgs-domino.com
