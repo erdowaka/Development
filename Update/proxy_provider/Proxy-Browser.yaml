@@ -1,9 +1,0 @@
-proxies:  
-- name: browsermaster
-  type: trojan
-  server: id3.masterwifi.xyz
-  port: 443
-  password: '09b3c500-deb5-11ec-bd26-1239d0255272'
-  udp: true
-  sni: isi-bugmu.disini.com
-  skip-cert-verify: true

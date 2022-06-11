@@ -1,9 +1,0 @@
-proxies:  
-- name: streammaster
-  type: trojan
-  server: id1.masterwifi.xyz
-  port: 443
-  password: 727a0000-deb5-11ec-b9a5-1239d0255272
-  udp: true
-  sni: isi-bugmu.disini.com
-  skip-cert-verify: true

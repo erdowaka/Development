@@ -1,9 +1,0 @@
-proxies:  
-- name: sosmedmaster
-  type: trojan
-  server: id2.masterwifi.xyz
-  port: 443
-  password: 9655a3c0-e0d5-11ec-b9f1-1239d0255272
-  udp: true
-  sni: isi-bugmu.disini.com
-  skip-cert-verify: true
